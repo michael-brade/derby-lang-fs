@@ -1,7 +1,7 @@
 {
   "author": "psirenny <djtorres0@gmail.com>",
   "bugs": {
-    "url": "https://github.com/psirenny/derby-lang-loader-fs/issues"
+    "url": "https://github.com/psirenny/derby-lang-fs/issues"
   },
   "dependencies": {
     "findit": "*",
@@ -27,11 +27,11 @@
   ],
   "license": "MIT",
   "main": "index.js",
-  "name": "derby-lang-loader-fs",
+  "name": "derby-lang-fs",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
-    "url": "git://github.com/psirenny/derby-lang-loader-fs.git"
+    "url": "git://github.com/psirenny/derby-lang-fs.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

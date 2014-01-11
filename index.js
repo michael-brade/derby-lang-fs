@@ -4,6 +4,7 @@ var _ = require('lodash')
   , traverse = require('traverse');
 
 module.exports = function (options) {
+  if (!options) options = {};
   if (!options.directory) options.directory = 'locale';
 
   options.directory = path.resolve(
@@ -11,7 +12,8 @@ module.exports = function (options) {
   );
 
   return function (req, res, next) {
-    var find = findit(options.directory)
+    var model = req.getModel()
+      , find = findit(options.directory)
       , formats = {locale: {}}
       , translations = {};
 
@@ -28,8 +30,8 @@ module.exports = function (options) {
     find.on('end', function () {
       var $formats = model.at('$lang.formats');
       var $translations = model.at('$lang.translations');
-      $formats.set(_merge($formats.get(), formats));
-      $translations.set(_merge($translations.get(), translations));
+      $formats.set(_.merge($formats.get(), formats));
+      $translations.set(_.merge($translations.get(), translations));
       next();
     });
   };
