@@ -19,12 +19,24 @@ module.exports = function (options) {
 
     find.on('file', function (file) {
       var extname = path.extname(file);
+
+      // only read .js and .json files
       if (extname !== '.js' && extname !== '.json') return;
+
+      // get keypath to file
       var namespace = path.relative(options.directory, file).split(path.sep);
       var key = path.basename(namespace.pop(), extname);
+
+      // include non-index filename in keypath
       if (key !== 'index') namespace.push(key);
+
+      // set format if reading a .js file
       if (extname === '.js') return formats.locale[namespace[0]] = require(file);
-      if (extname === '.json') traverse(translations).set(namespace, require(file));
+
+      // merge translation strings at keypath
+      var val = traverse(translations).get(namespace) || {};
+      val = _.merge(val, require(file));
+      traverse(translations).set(namespace, val);
     });
 
     find.on('end', function () {
