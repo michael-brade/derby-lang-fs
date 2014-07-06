@@ -1,7 +1,7 @@
-var _ = require('lodash')
-  , findit = require('findit')
-  , path = require('path')
-  , traverse = require('traverse');
+var _ = require('lodash');
+var findit = require('findit');
+var path = require('path');
+var traverse = require('traverse');
 
 module.exports = function (options) {
   if (!options) options = {};
@@ -12,10 +12,10 @@ module.exports = function (options) {
   );
 
   return function (req, res, next) {
-    var model = req.getModel()
-      , find = findit(options.directory)
-      , formats = {locale: {}}
-      , translations = {};
+    var model = req.getModel();
+    var find = findit(options.directory);
+    var formats = {locale: {}};
+    var translations = {};
 
     find.on('file', function (file) {
       var extname = path.extname(file);
