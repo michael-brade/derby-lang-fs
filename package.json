@@ -4,9 +4,7 @@
     "url": "https://github.com/psirenny/derby-lang-fs/issues"
   },
   "dependencies": {
-    "findit": "*",
-    "lodash": "*",
-    "traverse": "*"
+    "json-defiler": "^0.1.0"
   },
   "description": "Filesystem translation loader for Derby Lang.",
   "keywords": [
