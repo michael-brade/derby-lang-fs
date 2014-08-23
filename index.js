@@ -6,7 +6,8 @@ module.exports = function (options) {
       if (err) return next(err);
       var model = req.getModel();
       var path = options.path || '$lang.dict';
-      model.set(path, data.json);
+      var dict = {strings: data.json};
+      model.set(path, dict);
       next();
     });
   };
