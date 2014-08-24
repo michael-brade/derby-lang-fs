@@ -4,7 +4,7 @@
     "url": "https://github.com/psirenny/derby-lang-fs/issues"
   },
   "dependencies": {
-    "json-defiler": "^0.1.0"
+    "json-defiler": "^0.2.1"
   },
   "description": "Filesystem translation loader for Derby Lang.",
   "keywords": [
@@ -32,7 +32,11 @@
     "url": "git://github.com/psirenny/derby-lang-fs.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha test"
   },
-  "version": "0.5.0"
+  "version": "0.5.0",
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "mocha": "^1.21.4"
+  }
 }
