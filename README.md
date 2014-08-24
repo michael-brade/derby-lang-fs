@@ -3,6 +3,8 @@ Derby Lang FS
 
 Load a [Derby Lang](https://github.com/psirenny/derby-lang) dictionary from the file system.
 
+[![Build Status](https://travis-ci.org/psirenny/derby-lang-fs.png?branch=master)](https://travis-ci.org/psirenny/derby-lang-fs)
+
 Installation
 ------------
 
