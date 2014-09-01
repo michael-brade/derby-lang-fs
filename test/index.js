@@ -3,8 +3,10 @@ var path = require('path');
 var should = require('chai').should();
 
 describe('derby-lang-fs', function () {
-  it('should be a function', function () {
-    lib.should.be.a('function');
+  describe('middleware', function () {
+    it('should be a function', function () {
+      lib.should.be.a('function');
+    });
   });
 
   describe('load', function () {

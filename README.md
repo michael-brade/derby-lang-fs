@@ -28,8 +28,9 @@ Add the middleware to your server file:
 Options
 -------
 
-`dir` — The directory containing the language files.  
-`path` — The path to set the dictionary. Defaults to **$lang.dict**.
+**dir** — The directory containing the language files.
+
+**path** — The path to set the dictionary. Defaults to `$lang.dict`.
 
 Example
 -------
@@ -49,12 +50,33 @@ Model output:
     {
       "$lang": {
         "dict": {
-          "en": {
-            "app": { /* index.json */ }
-          },
-          "es": {
-            "app": { /* index.json */ }
-          },
+          "strings": {
+            "en": {
+              "app": { /* index.json */ }
+            },
+            "es": {
+              "app": { /* index.json */ }
+            }
+          }
         }
       }
     }
+
+Custom message formats
+----------------------
+
+You may also include custom messageformat.js [select functions](https://github.com/SlexAxton/messageformat.js/tree/master/locale).
+This is particularly useful if you have a new language or want to override the default messageformat select functions.
+
+Just include `.js` files within your folder with the appropriate code. An example of a "custom" language:
+
+Folder structure:
+
+    locale/
+    +-- cu.js
+
+And within **cu.js**:
+
+    module.exports = function (n) {
+      return n === 1 ? "one" : "other";
+    };
