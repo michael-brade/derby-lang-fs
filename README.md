@@ -65,10 +65,8 @@ Model output:
 Custom message formats
 ----------------------
 
-You may also include custom messageformat.js [select functions](https://github.com/SlexAxton/messageformat.js/tree/master/locale).
-This is particularly useful if you have a new language or want to override the default messageformat select functions.
-
-Just include `.js` files within your folder with the appropriate code. An example of a "custom" language:
+You may also include custom messageformat.js [select functions](https://github.com/SlexAxton/messageformat.js/tree/master/locale) as `.js` files.
+This is particularly useful if you have a new language or want to override the default messageformat select functions:
 
 Folder structure:
 
