@@ -1,4 +1,5 @@
 var defiler = require('json-defiler');
+var merge = require('merge');
 
 module.exports = function(options) {
     return function(req, res, next) {
@@ -6,7 +7,12 @@ module.exports = function(options) {
         module.exports.load(options, function(err, dict) {
             if (err) return next(err);
             var path = options.path || '$lang.dict';
-            model.set(path, dict);
+
+            if (options.merge)
+                model.set(path, merge.recursive(true, model.get(path), dict));
+            else
+                model.set(path, dict);
+
             next();
         });
     };
@@ -25,6 +31,7 @@ module.exports.load = function(options, callback) {
         };
         dict.messageformat.locale = data.js || {};
         dict.strings = data.json;
+
         for (key in dict.messageformat.locale) {
             var val = dict.messageformat.locale[key];
             dict.messageformat.locale[key] = val.toString();

@@ -32,6 +32,8 @@ Options
 
 **path** — The path to set the dictionary. Defaults to `$lang.dict`.
 
+**merge** — Merge the loaded data into **path** instead of overwriting it.
+
 Example
 -------
 
