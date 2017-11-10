@@ -3,7 +3,9 @@ var merge = require('merge');
 
 module.exports = function(options) {
     return function(req, res, next) {
-        var model = req.getModel();
+        var model = req.model;
+        if (!model) return next();
+
         module.exports.load(options, function(err, dict) {
             if (err) return next(err);
             var path = options.path || '$lang.dict';
